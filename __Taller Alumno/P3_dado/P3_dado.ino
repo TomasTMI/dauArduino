@@ -5,14 +5,14 @@
 */
 
 /**  Pins  **/
-#define L7  12
-#define L6  11
-#define L5  10
-#define L4  9
-#define L3  8
-#define L2  7
-#define L1  6
-#define KEY 2
+#define L7  13
+#define L6  14
+#define L5  27
+#define L4  26
+#define L3  25
+#define L2  33
+#define L1  32
+#define KEY 34
 
 /** On/Off leds **/
 #define L7on digitalWrite(L7, HIGH)
@@ -48,6 +48,7 @@ void setup() {
   pinMode(L3, OUTPUT);
   pinMode(L2, OUTPUT);
   pinMode(L1, OUTPUT);
+  pinMode(KEY, INPUT);
   attachInterrupt(digitalPinToInterrupt(KEY), corre, CHANGE);
 }
 
@@ -76,9 +77,9 @@ void dado(void) {
   switch (num) {
     case 1: L7off; L6off; L5off; L4on; L3off; L2off; L1off; break;
     case 2: L7on; L6off; L5off; L4off; L3off; L2off; L1on; break;
-    case 3: L7off; L6off; L5off; L4on; L3off; L2off; L1off; break;
+    case 3: L7on; L6off; L5off; L4on; L3off; L2off; L1on; break;
     case 4: L7on; L6on; L5off; L4off; L3off; L2on; L1on; break;
     case 5: L7on; L6on; L5off; L4on; L3off; L2on; L1on; break;
-    case 6: L7off; L6off; L5off; L4on; L3off; L2off; L1off; break;
+    case 6: L7on; L6on; L5on; L4off; L3on; L2on; L1on; break;
   }
 }
